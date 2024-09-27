@@ -7,6 +7,8 @@ class App:
         pyxel.init(160, 120, fps=120, title='Aura' )
         pyxel.load('./resources/resource1.pyxres')
 
+        self.world = World(pyxel.tilemap(0))
+
         self.player = Player()
 
         pyxel.run(self.update, self.draw)
