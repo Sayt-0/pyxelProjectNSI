@@ -40,3 +40,6 @@ class App:
 
 
 App()
+
+def caca():
+    pass
