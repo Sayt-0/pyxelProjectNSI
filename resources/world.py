@@ -1,8 +1,18 @@
-class World:
+TILE_SIZE = 8
 
+SPRITE_BANK = 0
+
+class WorldItem:
+    
+     
     FLOOR = (0, 14)
     PLAYER = (0, 13)
     EMPTY = (1, 13)
+
+
+class World:
+
+    
 
 
     HEIGHT = 16
@@ -17,5 +27,23 @@ class World:
         for y in range(self.HEIGHT):
             self.world_map.append([])
             for x in range(self.WIDTH):
-                if self.tilemap.pget(x,y) == WorldItem.WALL:
-                    self.world_map[y].append
+                if self.tilemap.pget(x,y) == WorldItem.FLOOR:
+                    self.world_map[y].append(WorldItem.FLOOR)
+                elif self.tilemap.pget(x,y) == WorldItem.PLAYER:
+                    self.world_map[y].append(WorldItem.EMPTY)
+                    self.player_grid_x = x
+                    self.player_grid_y = y
+                else:
+                    self.world_map[y].append(WorldItem.EMPTY)
+                    
+                    
+def world_item_draw(pyxel, x, y, world_item):
+    pyxel.blt(
+        x * TILE_SIZE,
+        y * TILE_SIZE,
+        SPRITE_BANK,
+        world_item[0] * TILE_SIZE,
+        world_item[1] * TILE_SIZE,
+        TILE_SIZE,
+        TILE_SIZE
+    )
