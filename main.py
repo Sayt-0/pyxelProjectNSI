@@ -29,10 +29,10 @@ class App:
             self.player.mv_rght()
             
         elif pyxel.btn(pyxel.KEY_Z):
-            self.player.move_up()
+            self.player.mv_up()
         
         elif pyxel.btn(pyxel.KEY_S):
-            self.player.move_down()
+            self.player.mv_dwn()
         
 
 
