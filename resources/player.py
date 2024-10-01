@@ -20,7 +20,7 @@ class Player:
         self.x += self.DX
 
     def mv_up(self):
-        self.y += self.DX
+        self.y -= self.DX
 
     def mv_dwn(self):
-        self.y -= self.DX
+        self.y += self.DX

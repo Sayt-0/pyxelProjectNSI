@@ -11,7 +11,7 @@ class App:
         pyxel.init(160, 120, fps=120, title='Aura' )
         pyxel.load('./resources/resource1.pyxres')
 
-        self.world = World(pyxel.tilemap(0))
+        self.world = World(pyxel.tilemaps[0])
 
         self.player = Player(self.world)
 
@@ -50,7 +50,7 @@ class App:
             self.player.y,
             self.player.IMG,
             WorldItem.PLAYER[0] * TILE_SIZE,
-            WorldItem.PLAYER[1] * TILE_SIZE,
+            WorldItem.PLAYER[0] * TILE_SIZE,
             self.player.WIDTH,
             self.player.HEIGHT,
         )
