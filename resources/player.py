@@ -18,3 +18,9 @@ class Player:
     
     def mv_rght(self):
         self.x += self.DX
+
+    def mv_up(self):
+        self.y -= self.DX
+
+    def mv_dwn(self):
+        self.y += self.DX

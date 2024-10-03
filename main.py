@@ -11,7 +11,7 @@ class App:
         pyxel.init(160, 120, fps=120, title='Aura' )
         pyxel.load('./resources/resource1.pyxres')
 
-        self.world = World(pyxel.tilemap(0))
+        self.world = World(pyxel.tilemaps[0])
 
         self.player = Player(self.world)
 
@@ -29,10 +29,10 @@ class App:
             self.player.mv_rght()
             
         elif pyxel.btn(pyxel.KEY_Z):
-            self.player.move_up()
+            self.player.mv_up()
         
         elif pyxel.btn(pyxel.KEY_S):
-            self.player.move_down()
+            self.player.mv_dwn()
         
 
 
@@ -57,4 +57,3 @@ class App:
 
 
 App()
-

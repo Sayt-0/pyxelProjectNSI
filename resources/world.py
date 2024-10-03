@@ -5,9 +5,9 @@ SPRITE_BANK = 0
 class WorldItem:
     
      
-    FLOOR = (0, 14)
-    PLAYER = (0, 13)
-    EMPTY = (1, 13)
+    FLOOR = (3, 0)
+    PLAYER = (0, 0)
+    EMPTY = (2, 1)
 
 
 class World:
@@ -47,3 +47,4 @@ def world_item_draw(pyxel, x, y, world_item):
         TILE_SIZE,
         TILE_SIZE
     )
+    
