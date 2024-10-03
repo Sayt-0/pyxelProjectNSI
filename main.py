@@ -50,7 +50,7 @@ class App:
             self.player.y,
             self.player.IMG,
             WorldItem.PLAYER[0] * TILE_SIZE,
-            WorldItem.PLAYER[1] * TILE_SIZE,
+            WorldItem.PLAYER[0] * TILE_SIZE,
             self.player.WIDTH,
             self.player.HEIGHT,
         )
