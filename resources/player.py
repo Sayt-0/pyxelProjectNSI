@@ -24,13 +24,12 @@ class Player:
         tile_y = int(self.__y / TILE_SIZE)
         tile_x = int(self.__x / TILE_SIZE)
         
-        new_x = self.x - self.DX
+        new_x = self.__x - self.DX
         new_tile_x = tile_x - 1
-
+    
         if new_tile_x < 0:
-            return  # On ne peut pas sortir de la carte
-
-
+            return  # Cannot go beyond the map
+    
         next_tile_up = self.world.world_map[tile_y][new_tile_x]
         next_tile_bottom = self.world.world_map[tile_y + 1][new_tile_x] 
         
@@ -45,18 +44,20 @@ class Player:
                 new_x, self.__y, new_tile_x * TILE_SIZE, (tile_y + 1) * TILE_SIZE
             )
         ):
-            return  
+            return
+        
+        self.__x = new_x
 
     def mv_rght(self):
         tile_y = int(self.__y / TILE_SIZE)
         tile_x = int(self.__x / TILE_SIZE)
         
-        new_x = self.x + self.DX
+        new_x = self.__x + self.DX
         new_tile_x = tile_x + 1
-
+    
         if new_tile_x >= len(self.world.world_map[0]):
             return  # Cannot go beyond the map
-
+    
         next_tile_up = self.world.world_map[tile_y][new_tile_x]
         next_tile_bottom = self.world.world_map[tile_y + 1][new_tile_x] 
         
