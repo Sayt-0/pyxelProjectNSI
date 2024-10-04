@@ -33,6 +33,10 @@ class App:
         elif pyxel.btn(pyxel.KEY_S):
             self.player.mv_dwn()
 
+        elif pyxel.btn(pyxel.KEY_SPACE):
+            self.player.jump()
+        else:
+            self.player.s_m()
         #self.player.gravity()
         
 

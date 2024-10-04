@@ -47,4 +47,13 @@ def world_item_draw(pyxel, x, y, world_item):
         TILE_SIZE,
         TILE_SIZE
     )
+
+def sprites_collide(x1, y1, x2, y2):
     
+    if x1 + TILE_SIZE <= x2 or x2 + TILE_SIZE <= x1:
+        return False
+    
+    if y1 + TILE_SIZE <= y2 or y2 + TILE_SIZE <= y1:
+        return False
+    
+    return True
