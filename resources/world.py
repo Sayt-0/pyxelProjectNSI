@@ -8,6 +8,9 @@ class WorldItem:
     FLOOR = (3, 0)
     PLAYER = (0, 0)
     EMPTY = (2, 1)
+    STARS = (2,0)
+    BUSH = (4, 0)
+    GRASS = (3, 1)
 
 
 class World:
@@ -33,10 +36,14 @@ class World:
                     self.world_map[y].append(WorldItem.EMPTY)
                     self.player_grid_x = x
                     self.player_grid_y = y
+                elif self.tilemap.pget(x,y) == WorldItem.STARS:
+                    self.world_map[y].append(WorldItem.STARS)
+                elif self.tilemap.pget(x,y) == WorldItem.BUSH:
+                    self.world_map[y].append(WorldItem.BUSH)
+                elif self.tilemap.pget(x,y) == WorldItem.GRASS:
+                    self.world_map[y].append(WorldItem.GRASS)
                 else:
                     self.world_map[y].append(WorldItem.EMPTY)
-                    
-                    
 def world_item_draw(pyxel, x, y, world_item):
     pyxel.blt(
         x * TILE_SIZE,

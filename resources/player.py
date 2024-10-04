@@ -9,6 +9,7 @@ class Player:
     HEIGHT = 8
     DX = 0.5
     ROUNDING_ERROR_DELTA = 0.1
+    GRAVITY = 1
 
 
     def __init__(self, world) -> None:
@@ -102,7 +103,7 @@ class Player:
         ):
             return  
         
-        self.__y = new_y
+        self.__y = self.__y
 
     def mv_dwn(self):
        
@@ -134,8 +135,39 @@ class Player:
         
         self.__y = new_y
 
-    def gravity(self):
-        self.__y -= 1
+
+    def jump(self):
+        self.__y -= 20
+
+    def apply_gravity(self):
+        tile_y = int(self.__y / TILE_SIZE)
+        tile_x = int(self.__x / TILE_SIZE)
+
+        new_y = self.__y + self.GRAVITY
+        new_tile_y = tile_y + 1
+
+        if new_tile_y >= len(self.world.world_map):
+            return  # Cannot go beyond the map
+
+        next_tile_left = self.world.world_map[new_tile_y][tile_x]
+        next_tile_right = self.world.world_map[new_tile_y][tile_x + 1]
+
+        if (
+            next_tile_left == WorldItem.FLOOR
+            and sprites_collide(
+                self.__x, new_y, tile_x * TILE_SIZE, new_tile_y * TILE_SIZE
+            )
+        ) or (
+            next_tile_right == WorldItem.FLOOR
+            and sprites_collide(
+                self.__x, new_y, (tile_x + 1) * TILE_SIZE, new_tile_y * TILE_SIZE
+            )
+        ):
+            return
+
+        self.__y = new_y
+    
+        
 
     @property
     def x(self):
