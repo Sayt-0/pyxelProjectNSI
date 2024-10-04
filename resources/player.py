@@ -24,3 +24,6 @@ class Player:
 
     def mv_dwn(self):
         self.y += self.DX
+
+    def gravity(self):
+        self.y += 1
