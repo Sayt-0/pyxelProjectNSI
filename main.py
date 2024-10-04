@@ -8,9 +8,8 @@ from resources.world import World, WorldItem, world_item_draw, TILE_SIZE
 
 class App:
     def __init__(self) -> None:
-        pyxel.init(160, 120, fps=120, title='Aura' )
+        pyxel.init(120, 120, fps=120, title='Aura' )
         pyxel.load('./resources/resource1.pyxres')
-
         self.world = World(pyxel.tilemaps[0])
 
         self.player = Player(self.world)
@@ -33,6 +32,8 @@ class App:
         
         elif pyxel.btn(pyxel.KEY_S):
             self.player.mv_dwn()
+
+        #self.player.gravity()
         
 
 
@@ -50,7 +51,7 @@ class App:
             self.player.y,
             self.player.IMG,
             WorldItem.PLAYER[0] * TILE_SIZE,
-            WorldItem.PLAYER[0] * TILE_SIZE,
+            WorldItem.PLAYER[1] * TILE_SIZE,
             self.player.WIDTH,
             self.player.HEIGHT,
         )
