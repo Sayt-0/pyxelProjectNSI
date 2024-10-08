@@ -10,7 +10,7 @@ class Player:
     HEIGHT = 8
     DX = 0.5
     ROUNDING_ERROR_DELTA = 0.1
-    GRAVITY = 0.2
+    
 
 
     def __init__(self, world) -> None:
@@ -19,7 +19,7 @@ class Player:
         self.world = world
         self.velocity_y = 0   # Vitesse verticale du joueur (initialement 0)
         self.jumping = False  # Indicateur de saut
-        self.jump_velocity = -4  # Vitesse initiale du saut (négative pour monter)
+        self.jump_velocity = -2.5  # Vitesse initiale du saut (négative pour monter)
         self.gravity = 0.1    # Accélération de la gravité (augmente la vitesse verticale)
         self.max_fall_speed = 4  # Limite la vitesse de chute (vitesse terminale)
 

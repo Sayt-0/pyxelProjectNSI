@@ -33,7 +33,7 @@ class App:
         elif pyxel.btn(pyxel.KEY_S):
             self.player.mv_dwn()
 
-        elif pyxel.btnp(pyxel.KEY_SPACE):
+        elif pyxel.btnp(pyxel.KEY_SPACE or (pyxel.KEY_SPACE and pyxel.KEY_D)):
             self.player.jump()
 
         else:
