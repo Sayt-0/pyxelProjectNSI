@@ -1,5 +1,6 @@
 from resources.world import TILE_SIZE, WorldItem, sprites_collide
 from resources.utils import round_float_if_close
+import time
 
 class Player:
     IMG = 0
@@ -137,7 +138,9 @@ class Player:
 
 
     def jump(self):
-        self.__y -= 20
+        for n in range(7, 0, -1):
+            time.sleep(0.1)
+            self.y -= n
 
     def apply_gravity(self):
         tile_y = int(self.__y / TILE_SIZE)
