@@ -14,7 +14,7 @@ class App:
 
         self.player = Player(self.world)
 
-        pyxel.run(self.update, self.draw)
+        pyxel.run(self.update, self.draw) 
     
 
 
